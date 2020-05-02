@@ -63,15 +63,17 @@ def sigmoid(x):
 	
 #Model##########################################################################################################################################################################################################################
 
-#Input
-#1
+
+#Place holders for data
 x1   = tf.placeholder(tf.float32)
-W1   = tf.sparse_placeholder(tf.float32)#, shape = [76743,13])
-Ind1 = tf.placeholder(tf.int64)#,shape=[76743,2])
-MV1  = tf.placeholder(tf.int64)#,shape=[76743])
+y    = tf.placeholder(tf.float32)
+#Placehodlers for goemtric info
+W1   = tf.sparse_placeholder(tf.float32)
+Ind1 = tf.placeholder(tf.int64)
+MV1  = tf.placeholder(tf.int64)
 DS1  = tf.placeholder(tf.int64)
 L1   = tf.placeholder(tf.int32)
-y    = tf.placeholder(tf.float32)
+
 n_pts = tf.placeholder(tf.int32)
 
 #Intialize
@@ -161,7 +163,7 @@ for i in range(max_its):
 
 #Testing####################################################################################
 	
-print('Begining Training')
+print('Begining Testing')
 count = 0
 for i in range(10000):
 	ypred = F1.eval(session=sess, feed_dict={x1:mnist.test.images[i],y:mnist.test.labels[i],W1:W1mat,Ind1:Indicies1,MV1:Vals1,DS1:DenseShape1,L1:L1mat,n_pts:784})
@@ -170,7 +172,7 @@ for i in range(10000):
 		if i%1000 == 0:
 			print(i, 'Tests Complete')
 acc = count/10000
-print('Accuacy:', acc)
+print('Test Accuacy:', acc)
 
 
 #Plot
