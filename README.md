@@ -1,6 +1,6 @@
 # Intro-to-GDL-Programing
 
-*These notebooks aand sample models are meant as a teaching tool. There are probably more efficent ways to do some of these things. 
+*These notebooks and sample models are meant as a teaching tool. There are probably more efficent ways to do some of these things, but here we try to be as readable as possible
 
 Tutorial 1: MNIST Classification with numpy
 
